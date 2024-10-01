@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        let bancoDeDados = [
+            "jose@mail.com",
+            "1234"
+        ];
+
+        bancoDeDados = {
+            email: "jose@mail.com",
+            senha: "1234"
+        };
+
+        bancoDeDados.outroEmail = "pedro@mail";
+
+        console.log(bancoDeDados);
+
+        //let email = prompt("Digite seu email");
+        //let senha = prompt("Digite sua senha");
+        if(email !== bancoDeDados.outroEmail ) {
+            alert("Email incorreto");
+            location.reload();
+        } 
+        else if (senha !== bancoDeDados.senha) {
+            alert("Senha incorreta");
+            location.reload();
+        }
+        else {
+            alert("Logado com sucesso");
+        } 
+        
+        
+
+        param = "15 numeros";
+        param = Number(param);
+        valid = Number.isInteger(param);
+
+        
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

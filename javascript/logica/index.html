@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        let numero1 = prompt("Digite o numero 1");
+        numero1 = parseInt(numero1);
+        if(Number.isNaN(numero1)) {
+            alert("Digite apenas numeros");
+            location.reload();
+        } else {
+            let numero2 = prompt("Digite o numero 2");
+            numero2 = parseInt(numero2);
+            if(Number.isNaN(numero2)) {
+                alert("Digite apenas numeros");
+                location.reload();
+            } else {
+                let resultado = parseInt(numero1) + parseInt(numero2);
+                alert("O resultado é: " + resultado);
+            }
+        }
+
+        // alert()
+        // console.log()
+        // prompt()
+        // parseInt()
+        // Number.isNaN()
+
+
+
+
+        /*
+        let nomeDaTurma = "GT02";
+        let totalDeAlunos = 30;
+        let mediaIdade = 25;
+
+        let informacoes = "Na minha turma " + nomeDaTurma + " tem " + totalDeAlunos + " alunos"
+
+        let soma = totalDeAlunos + mediaIdade
+
+        let diasDeAula = ["Seg", "Ter", "Qua", "Qui", "Sex"];
+        
+        let lista = [nomeDaTurma, totalDeAlunos, mediaIdade];
+
+        console.log(lista[0]);
+        */
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

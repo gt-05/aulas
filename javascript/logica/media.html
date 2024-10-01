@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let notas = [];
+
+        notas[0] = prompt("Digite a primeira nota");
+        notas[1] = prompt("Digite a segunda nota");
+        notas[2] = prompt("Digite a terceira nota");
+
+        console.log(notas);
+
+        // let notas = [Number(nota1), Number(nota2), Number(nota3)];
+
+        let soma = 0;
+        for(let index = 0; index < notas.length; index++) {
+            soma += Number(notas[index]);
+        }
+
+        let media = soma / notas.length;
+
+        alert("A média é : " + media);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

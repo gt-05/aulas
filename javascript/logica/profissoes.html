@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        let groups = [
+                {
+                    nome: "Maria",
+                    idade: 30,
+                    profissao: 'advogados'
+                },
+                {
+                    nome: "João",
+                    idade: 32,
+                    profissao: 'advogados'
+                },
+                {
+                    nome: "José",
+                    idade: 28,
+                    profissao: 'advogados'
+                },
+                {
+                    nome: "Joaquim",
+                    idade: 154,
+                    profissao: 'atores'
+                },
+                {
+                    nome: "Jeffeson",
+                    idade: 87,
+                    profissao: 'atores'
+                },
+                {
+                    nome: "Silvera",
+                    idade: 56,
+                    profissao: 'atores'
+                },
+                {
+                    nome: "Luis",
+                    idade: 18,
+                    profissao: 'atores'
+                },
+                {
+                    nome: "Gustavo",
+                    idade: 25,
+                    profissao: 'atores'
+                },
+                {
+                    nome: "Pedro",
+                    idade: 45,
+                    profissao: 'motorista'
+                },
+                {
+                    nome: "Gilvan",
+                    idade: 34,
+                    profissao: 'motorista'
+                },
+                {
+                    nome: "Juvenal",
+                    idade: 132,
+                    profissao: "porteiros"
+                }
+            ];
+        
+        function askToUser() {
+            return prompt(`
+                atores
+                motorista
+                advogados
+                porteiros
+            `);
+        }
+
+        function mostraPessoa(nome, idade) {
+            return `Meu nome é ${nome} e tenho ${idade} anos\n`
+        }
+
+        let selected = askToUser();
+
+        let texto = 'Escolha uma opção\n';
+        let pessoas = '';
+
+        for(let pessoa of groups) {
+            if(pessoa.profissao === selected) {
+                pessoas = pessoas + mostraPessoa(pessoa.nome, pessoa.idade);
+            }
+        }
+
+        alert(pessoas);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

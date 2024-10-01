@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let buscarNumero = true;
+        let numeroSecreto = parseInt(Math.random() * 100);
+        let numero = 0;
+
+        while (numero !== numeroSecreto) {
+
+            numero = prompt("Digite um numero");
+            numero = parseInt(numero);
+
+            if(Number.isNaN(numero)) {
+                alert("Digite apenas numeros");
+            } else {
+                if(numero === numeroSecreto) {
+                    alert("Parabéns! Você encontrou o número");
+                } else {
+                    if(numero > numeroSecreto) {
+                        alert("Numero secreto é menor");
+                    } else {
+                        alert("Numero secreto é maior");
+                    }
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+        /*
+            ==
+            ===
+            !=
+            !==
+            >
+            <
+            >=
+            <=
+        */
+
+        /*let numero = prompt("Adivinhe qual o numero");
+        let numeroSecreto = 10;
+
+        numero = parseInt(numero);
+
+        if(Number.isNaN(numero)) {
+            alert("Digite apenas numeros")
+            location.reload();
+        } else {
+            if(numero === numeroSecreto) {
+                alert("Parabéns! Você encontrou o número");
+                let tentatNovamente = confirm("Deseja tentar novamente?");
+
+                if(tentatNovamente) {
+                    location.reload();
+                }
+
+            } else {
+                alert('tente novamente');
+                location.reload();
+            }
+        }*/
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
