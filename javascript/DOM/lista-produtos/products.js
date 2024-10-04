@@ -5,7 +5,8 @@ export default [
         "price": 29.99,
         "discountPrice": 0.00,
         "discount": 10.0,
-        "category": "Vestuário"
+        "category": "Vestuário",
+        "stock": 0,
     },
     {
         "id": 2,
@@ -13,7 +14,8 @@ export default [
         "price": 199.99,
         "discountPrice": 0.00,
         "discount": 15.0,
-        "category": "Calçados"
+        "category": "Calçados",
+        "stock": 10,
     },
     {
         "id": 3,
@@ -21,7 +23,8 @@ export default [
         "price": 499.99,
         "discountPrice": 0.00,
         "discount": 20.0,
-        "category": "Acessórios"
+        "category": "Acessórios",
+        "stock": 0,
     },
     {
         "id": 4,
@@ -29,7 +32,8 @@ export default [
         "price": 89.99,
         "discountPrice": 0.00,
         "discount": 5.0,
-        "category": "Acessórios"
+        "category": "Acessórios",
+        "stock": 0,
     },
     {
         "id": 5,
@@ -37,7 +41,8 @@ export default [
         "price": 2999.99,
         "discountPrice": 0.00,
         "discount": 25.0,
-        "category": "Eletrônicos"
+        "category": "Eletrônicos",
+        "stock": 0,
     },
     {
         "id": 6,
@@ -45,7 +50,8 @@ export default [
         "price": 199.99,
         "discountPrice": 0.00,
         "discount": 30.0,
-        "category": "Eletrônicos"
+        "category": "Eletrônicos",
+        "stock": 10,
     },
     {
         "id": 7,
@@ -53,7 +59,8 @@ export default [
         "price": 799.99,
         "discountPrice": 0.00,
         "discount": 12.0,
-        "category": "Móveis"
+        "category": "Móveis",
+        "stock": 10,
     },
     {
         "id": 8,
@@ -61,7 +68,8 @@ export default [
         "price": 349.99,
         "discountPrice": 0.00,
         "discount": 18.0,
-        "category": "Eletrodomésticos"
+        "category": "Eletrodomésticos",
+        "stock": 10,
     },
     {
         "id": 9,
@@ -69,7 +77,8 @@ export default [
         "price": 4999.99,
         "discountPrice": 0.00,
         "discount": 10.0,
-        "category": "Eletrônicos"
+        "category": "Eletrônicos",
+        "stock": 10,
     },
     {
         "id": 10,
@@ -77,7 +86,8 @@ export default [
         "price": 39.99,
         "discountPrice": 0.00,
         "discount": 8.0,
-        "category": "Livros"
+        "category": "Livros",
+        "stock": 10,
     },
     {
         "id": 10,
@@ -85,6 +95,7 @@ export default [
         "price": 22.99,
         "discountPrice": 0.00,
         "discount": 5.0,
-        "category": "Livros"
+        "category": "Livros",
+        "stock": 0
     }
 ]
