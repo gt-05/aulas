@@ -1,103 +1,55 @@
-/**
- * Require necessary libraries
- */
-const fs = require('fs')
-const bodyParser = require('body-parser')
-const jsonServer = require('json-server')
-// const jwt = require('jsonwebtoken')
-// const bcrypt = require('bcrypt')
+const fs = require('fs');
+const cors = require('cors');
+const express = require('express');
+const app = express();
+const jwt = require("jsonwebtoken")
 
-// JWT confing data
-const SECRET_KEY = '123456789'
-const expiresIn = '1h'
+app.use(cors());
+app.use(express.json());
 
-// Create server
-const server = jsonServer.create()
+const db = JSON.parse(fs.readFileSync('./db.json', 'UTF-8'));
 
-// Create router
-const router = jsonServer.router('./db.json')
+app.post('/user/create', (req, res) => {
+    let {name, email, password} = req.body;
 
-// Users database
-const userdb = JSON.parse(fs.readFileSync('./db.json', 'UTF-8'))
-
-// Default middlewares
-server.use(bodyParser.urlencoded({ extended: true }))
-server.use(bodyParser.json())
-
-// Create a token from a payload
-function createToken(payload) {
-  return jwt.sign(payload, SECRET_KEY, { expiresIn })
-}
-
-// Verify the token
-function verifyToken(token) {
-  return jwt.verify(
-    token,
-    SECRET_KEY,
-    (err, decode) => (decode !== undefined ? decode : err)
-  )
-}
-
-// Check if the user exists in database
-function isAuthenticated({ email, password }) {
-  return (
-    userdb.users.findIndex(
-      user =>
-        user.email === email && password === user.password
-    ) !== -1
-  )
-}
-
-/**
- * Method: POST
- * Endpoint: /auth/login
- */
-server.post('/auth/login', (req, res) => {
-  const { email, password } = req.body
-  if (isAuthenticated({ email, password }) === false) {
-    const status = 401
-    const message = 'Incorrect email or password'
-    res.status(status).json({ status, message })
-    return
-  }
-  // const token = createToken({ email, password })
-  // res.status(200).json({ token })
-})
-
-server.get('/list', (req, res) => {
-    if(!req.headers.senha) {
-        const status = 401
-        const message = 'Bad authorization header'
-        return res.status(status).json({ status, message })
+    if(!name || !email || !password) {
+        return res.status(400).json({error: true, message: "Dados invalidos!"})
     }
-    res.json(userdb.products)
+
+    db.users.push({
+        name, email, password
+    });
+    fs.writeFileSync('./db.json', JSON.stringify(db));
+    res.send({message: 'Usuário criado com sucesso!'});
 });
 
-/**
- * Middleware: Check authorization
- */
-// server.use(/^(?!\/auth).*$/, (req, res, next) => {
-//   if (
-//     req.headers.authorization === undefined ||
-//     req.headers.authorization.split(' ')[0] !== 'Bearer'
-//   ) {
-//     const status = 401
-//     const message = 'Bad authorization header'
-//     res.status(status).json({ status, message })
-//     return
-//   }
-//   try {
-//     verifyToken(req.headers.authorization.split(' ')[1])
-//     next()
-//   } catch (err) {
-//     const status = 401
-//     const message = 'Error: access_token is not valid'
-//     res.status(status).json({ status, message })
-//   }
-// })
+app.post('/user/access', (req, res) => {
+    let { token } = req.headers;
+    try {
 
-// Server mount
-server.use(router)
-server.listen(3000, () => {
-  console.log('Auth API server runing on port 3000 ...')
-})
+        let decoded = jwt.verify(token, 'shhhhh');
+        console.log(decoded.foo) // bar
+    } catch(e) {
+        return res.status(401).json(false)
+    }
+
+    res.json(true);
+});
+
+app.post('/user/login', (req, res) => {
+    let { email, password } = req.body;
+    let user = db.users.find(function(item) {
+        return item.password === password && item.email === email;
+    });
+    if(!user) {
+        return res.status(401).json({message: "Não autorizado!"})
+    }
+
+    let token = jwt.sign({email}, 'shhhhh');
+
+    res.send({token});
+});
+
+app.listen(3000, () => {
+    console.log('Servidor rodando na porta 3000');
+});
