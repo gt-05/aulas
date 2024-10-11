@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Gallery - Vanilla</title>
+	<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+	<div class="gallery max-w-[1440px] max-h-[681px]">
+		<div class="slider relative overflow-hidden">
+			<div class="slides flex ease-in-out duration-500">
+			</div>
+			<span class="absolute top-1/2 cursor-pointer" id="prev">
+				<img src="/tailwind/assets/icons/prev.svg">
+			</span>
+			<span class="absolute top-1/2 cursor-pointer right-0" id="next">
+				<img src="/tailwind/assets/icons/next.svg">
+			</span>
+		</div>
+	</div>
+
+	<script src="script.js"></script>
+</body>
+</html>
