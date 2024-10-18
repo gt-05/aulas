@@ -31,8 +31,8 @@ export default function Gallery() {
 
 	let tagsImg = imgs.map(function (img) {
 		return (
-			<div class="slide min-w-full">
-				<img class="w-full h-full" src={img.src} />
+			<div className="slide min-w-full">
+				<img className="w-full h-full" src={img.src} />
 			</div>
 		)
 	});
