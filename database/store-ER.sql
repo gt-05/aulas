@@ -1,55 +1,60 @@
-CREATE DATABASE store;
+DROP DATABASE IF EXISTS store;
+CREATE DATABASE IF NOT EXISTS store;
 
-use store;
-
-CREATE TABLE store.user (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-    firstname VARCHAR(45),
-    surname VARCHAR(45),
-    email VARCHAR(255),
-    password VARCHAR(255),
+DROP TABLE IF EXISTS store.user;
+CREATE TABLE IF NOT EXISTS store.user (
+	id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    firstname VARCHAR(45) NOT NULL,
+    surname VARCHAR(45) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     update_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP 
 );
 
-CREATE TABLE store.product (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(255),
-    price DECIMAL(5, 2),
-    slug VARCHAR(255),
+DROP TABLE IF EXISTS store.product;
+CREATE TABLE IF NOT EXISTS store.product (
+	id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    price DECIMAL(5, 2) NOT NULL,
+    slug VARCHAR(255) NOT NULL,
     description TEXT,
     price_with_discount DECIMAL(5, 2),
-    enabled BOOLEAN DEFAULT 0,
-    stock INT DEFAULT 0,
+    enabled BOOLEAN DEFAULT 0 NOT NULL,
+    stock INT UNSIGNED DEFAULT 0 NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
-CREATE TABLE store.product_option (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-    product_id INT,
-    title VARCHAR(20),
-    shape ENUM("square", "circle"),
-    radius INT DEFAULT 0,
-    type ENUM("text", "color"),
-    `values` VARCHAR(255)
+DROP TABLE IF EXISTS store.product_option;
+CREATE TABLE IF NOT EXISTS store.product_option (
+	id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    product_id INT UNSIGNED NOT NULL,
+    title VARCHAR(20) NOT NULL,
+    shape ENUM("square", "circle") NOT NULL DEFAULT "square",
+    radius INT UNSIGNED DEFAULT 0 NOT NULL,
+    type ENUM("text", "color") NOT NULL DEFAULT "text",
+    `values` VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE store.product_image (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-    product_id INT,
-    path VARCHAR(255)
+DROP TABLE IF EXISTS store.product_image;
+CREATE TABLE IF NOT EXISTS store.product_image (
+	id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    product_id INT UNSIGNED NOT NULL,
+    path VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE store.category (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(45),
-    slug VARCHAR(255),
+DROP TABLE IF EXISTS store.category;
+CREATE TABLE IF NOT EXISTS store.category (
+	id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    name VARCHAR(45) NOT NULL,
+    slug VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
-CREATE TABLE store.product_category (
-	product_id INT,
-    category_id INT
+DROP TABLE IF EXISTS store.product_category;
+CREATE TABLE IF NOT EXISTS store.product_category (
+	product_id INT UNSIGNED NOT NULL,
+    category_id INT UNSIGNED NOT NULL
 );
