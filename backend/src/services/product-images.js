@@ -3,7 +3,7 @@ const fs = require('fs');
 
 const saveByUrl = async ({url, filename, slug}) => {
     filename = !filename ? Math.random().toString(16).slice(2) : filename;
-        
+
     let respose = await fetch(url);
     let mimeType = respose.headers.get("content-type");
     let extension = mimeType.split('/').pop();
