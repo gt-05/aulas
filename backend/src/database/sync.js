@@ -5,9 +5,9 @@ const ProductCategoryModel = require('../models/ProductCategoryModel');
 
 async function execute() {
     await ProductModel.sync();
-    await ProductImageModel.sync({alter: true});
+    await ProductImageModel.sync();
     await CategoryModel.sync();
-    await ProductCategoryModel.sync({alter: true});
+    await ProductCategoryModel.sync();
 }
 
 execute();
