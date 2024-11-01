@@ -6,14 +6,16 @@ module.exports = async (request, response) => {
     let {
         name,
         slug,
-        price
+        price,
+        enabled,
+        price_with_discount
     } = request.body;
 
     let product;
 
     try {
         product = await ProductModel.create({
-            name, slug, price
+            name, slug, price, enabled, price_with_discount
         });
     } catch(error) {
         response.status(400);

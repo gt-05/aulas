@@ -5,8 +5,10 @@ const AllProductsController = require('../controllers/Products/AllProductsContro
 const CreateController = require('../controllers/Products/CreateController');
 const UpdateController = require("../controllers/Products/UpdateController");
 const DeleteController = require("../controllers/Products/DeleteController");
+const GetBySlug = require("../controllers/Products/GetBySlug");
 
 router.get('/products', AllProductsController);
+router.get('/products/:slug', GetBySlug);
 router.post('/products', CreateController);
 router.put('/products/:id', UpdateController);
 router.delete('/products/:id', DeleteController);
