@@ -22,9 +22,10 @@ export default function ProductListing(props) {
     return (
         <section className="flex gap-[24px] justify-center flex-wrap">
            {products.map(product => {
+                let image = product.images[0]?.url ?? product.placeholder_image
                 return <ProductCard
-                    image={product.images[0].url}  
-                    name={product.name} 
+                    image={image}  
+                    name={product.name}     
                     price={product.price} 
                     priceDiscount={product.price_with_discount}
                     slug={product.slug} />

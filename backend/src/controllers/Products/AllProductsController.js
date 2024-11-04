@@ -7,6 +7,7 @@ ProductModel.hasMany(ProductImageModel, {
 });
 
 module.exports = async (request, response) => {
+    //  return response.end(request.teste);
     let products = await ProductModel.findAll({
         where: {
             enabled: true

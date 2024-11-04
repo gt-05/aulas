@@ -7,6 +7,9 @@ const UpdateController = require("../controllers/Products/UpdateController");
 const DeleteController = require("../controllers/Products/DeleteController");
 const GetBySlug = require("../controllers/Products/GetBySlug");
 
+
+
+
 router.get('/products', AllProductsController);
 router.get('/products/:slug', GetBySlug);
 router.post('/products', CreateController);

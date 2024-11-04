@@ -1,5 +1,6 @@
 const connection = require('../database/connection');
 const {DataTypes} = require('sequelize');
+const {getPublicUrl} = require('../ultils/url-builder');
 
 const ProductModel = connection.define("ProductModel", {
     name: {
@@ -25,6 +26,12 @@ const ProductModel = connection.define("ProductModel", {
         type: DataTypes.INTEGER.UNSIGNED,
         defaultValue: 0,
         allowNull: false
+    },
+    placeholder_image: {
+        type: DataTypes.VIRTUAL,
+        get() {
+            return getPublicUrl(`${this.slug}/placeholder.jpeg`);
+        }
     }
 }, {
     tableName: "product"

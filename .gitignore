@@ -1,1 +1,4 @@
+backend/node_modules/
 backend/public/*
+!backend/public/placeholder.webp
+*.env
