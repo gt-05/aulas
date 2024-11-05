@@ -1,21 +1,12 @@
-const express = require('express');
 
-let router = express.Router();
+const privateRoutes = require('./private-routes');
+const publicRoutes = require('./public-routes');
 
 const AllUserController = require('../controllers/User/AllUserController');
+const CreateController = require('../controllers/User/CreateController');
+const encriptPassword = require('../midleware/encript-password');
 
-/**
- CRIAR UM MIDDLEWARE PARA ENCRIPTAR A SENHA QUANDO
- CADASTRAR UM NOVO USUARIO
- 
- USAR A FUNÇÃO btoa() DO JS PARA ENCRIPTAR A SENHA
+publicRoutes.get('/users', AllUserController);
+privateRoutes.post('/users', encriptPassword, CreateController);
 
- OBS: O middleware não deve salvar o usuario, o middleware deve
- manipular as informações do request.body para chegar já encriptado
- la no controller
- */
-
-router.get('/users', AllUserController);
-
-
-module.exports = router;
+module.exports = [publicRoutes, privateRoutes];
