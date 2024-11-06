@@ -9,6 +9,6 @@ const CreateTokenController = require('../controllers/User/CreateTokenController
 
 publicRoutes.get('/users', AllUserController);
 privateRoutes.post('/users', encriptPassword, CreateController);
-publicRoutes.post('/users/token', encriptPassword, CreateTokenController);
+publicRoutes.post('/users/token', CreateTokenController);
 
 module.exports = [publicRoutes, privateRoutes];

@@ -9,7 +9,7 @@ const DeleteController = require("../controllers/Products/DeleteController");
 const GetBySlug = require("../controllers/Products/GetBySlug");
 
 
-privateRoutes.get('/products', AllProductsController);
+publicRoutes.get('/products', AllProductsController);
 publicRoutes.get('/products/:slug', GetBySlug);
 privateRoutes.post('/products', CreateController);
 privateRoutes.put('/products/:id', UpdateController);
