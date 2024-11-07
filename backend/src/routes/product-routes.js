@@ -9,6 +9,7 @@ const DeleteController = require("../controllers/Products/DeleteController");
 const ListImagesController = require("../controllers/Products/ListImagesController");
 const GetBySlug = require("../controllers/Products/GetBySlug");
 const CreateImagesController = require('../controllers/Products/CreateImagesController');
+const UpdateImagesController = require('../controllers/Products/UpdateImagesController');
 
 publicRoutes.get('/products', AllProductsController);
 publicRoutes.get('/products/:slug', GetBySlug);
@@ -17,5 +18,6 @@ privateRoutes.put('/products/:id', UpdateController);
 privateRoutes.delete('/products/:id', DeleteController);
 publicRoutes.get('/products/:id/images', ListImagesController);
 privateRoutes.post('/products/:id/images', CreateImagesController);
+privateRoutes.put('/products/:id/images/:imageId', UpdateImagesController);
 
 module.exports = [publicRoutes, privateRoutes];
