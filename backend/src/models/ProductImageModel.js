@@ -21,7 +21,7 @@ const ProductImageModel = connection.define("ProductImageModel", {
     url: {
         type: DataTypes.VIRTUAL,
         get(){
-            return getPublicUrl(this.path);
+            return getPublicUrl(this.getDataValue("path"));
         }
     }
 }, {
