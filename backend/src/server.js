@@ -6,6 +6,7 @@ const express = require('express');
 const cors = require('cors');
 const imagePlaceholder = require('./midleware/image-placeholder');
 const app = express();
+app.disable('x-powered-by');
 
 app.use(cors());
 app.use(express.json());

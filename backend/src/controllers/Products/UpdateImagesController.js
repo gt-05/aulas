@@ -11,8 +11,6 @@ module.exports = async (request, response) => {
 
     let image = await saveByUrl({url: request.body.url, slug: product.slug});
 
-    console.log("IAMGE", image);
-
     await ProductImageModel.update({
         path: image.relativePath
     }, {

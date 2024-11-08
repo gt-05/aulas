@@ -14,7 +14,7 @@ const UpdateImagesController = require('../controllers/Products/UpdateImagesCont
 publicRoutes.get('/products', AllProductsController);
 publicRoutes.get('/products/:slug', GetBySlug);
 privateRoutes.post('/products', CreateController);
-privateRoutes.put('/products/:id', UpdateController);
+privateRoutes.put('/products/:id?', UpdateController);
 privateRoutes.delete('/products/:id', DeleteController);
 publicRoutes.get('/products/:id/images', ListImagesController);
 privateRoutes.post('/products/:id/images', CreateImagesController);
