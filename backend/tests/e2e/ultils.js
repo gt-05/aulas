@@ -3,7 +3,7 @@ const randomString = () => {
     return Math.random().toString(16).slice(2)
 }
 
-const userData = () => {
+const newUser = () => {
     return {
         "firstname": randomString(),
         "surname": randomString(),
@@ -12,7 +12,16 @@ const userData = () => {
     }
 }
 
+const timestampColumns = () => {
+    return {
+        createdAt: new Date(),
+        updatedAt: new Date()
+    }
+}
+
 module.exports = {
-    userData, 
-    randomString
+    newUser,
+    userData: newUser, 
+    randomString,
+    timestampColumns
 }

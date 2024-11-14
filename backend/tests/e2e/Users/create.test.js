@@ -12,7 +12,8 @@ beforeAll(async () => {
 describe("POST /users", () => {
     
     it("deve retornar status code 400 quando não receber pelo menos um campos obrigatorio", async () => {
-        let response = await request.post('/users').send({firstname} = userData());
+        const {firstname} = userData()
+        let response = await request.post('/users').send({firstname});
         expect(response.status).toBe(400);
     });
 
